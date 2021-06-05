@@ -10,14 +10,20 @@
         <title>Books App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body>
-        <h1>Programming Books</h1>
-        {% for book in books %}
-            <p>{{ book.title }}</p>
-            <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
-        {% endfor %}
+        <section class="py-10">
+            <h1 class="text-center text-4xl">Programming Books</h1>
+            <div class="grid grid-cols-4 gap-4 mt-10">
+                {% for book in books %}
+                <div class="justify-self-center">
+                    <p>{{ book.title }}</p>
+                    <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
+                </div>
+                {% endfor %}
+            </div>
+        </section>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
