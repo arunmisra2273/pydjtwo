@@ -21,8 +21,9 @@
             <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
         </div>
         <p>{{ book.pageCount }}</p>
-        <p>{{book.shortDescription}}</p>
-        <p>{{book.longDescription}}</p>
+        <p>{{ book.shortDescription }}</p>
+        <p>{{ book.longDescription }}</p>
+        <p class="text-gray-600 mt-4">{{ book.authors|join:", " }}</p>
     </section>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
