@@ -17,10 +17,12 @@
             <h1 class="text-center text-4xl">Programming Books</h1>
             <div class="grid grid-cols-4 gap-4 mt-10">
                 {% for book in books %}
-                <div class="justify-self-center">
-                    <p>{{ book.title }}</p>
-                    <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
-                </div>
+                <a href="/books/{{ book.id }}" class="justify-self-center text-center my-4" target="_blank">
+                    <div class="flex justify-center">
+                        <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
+                    </div>
+                    <p class="text-lg text-gray-700">{{ book.title }}</p>
+                </a>
                 {% endfor %}
             </div>
         </section>
