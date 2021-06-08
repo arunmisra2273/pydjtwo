@@ -14,6 +14,8 @@ class Book(models.Model):
 
 class Review(models.Model):
     body = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now=True)
+    book_id = models.BigIntegerField()
 
     def __str__(self) -> str:
         return f"{self.id}  {self.body}"
