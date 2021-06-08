@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.BookListView.as_view(), name="books.index"),
     path("<int:pk>", views.BookDetailView.as_view(), name="books.show"),
     path('<int:id>/review', views.review, name="books.review"),
+    path('<str:author>', views.author, name="author.books"),
 ]
