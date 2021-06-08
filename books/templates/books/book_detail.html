@@ -10,7 +10,7 @@
 <p>{{ book.pageCount }}</p>
 <p>{{ book.shortDescription }}</p>
 <p>{{ book.longDescription }}</p>
-<p class="text-gray-600 mt-4">{{ book.authors|join:", " }}</p>
+<p class="text-gray-600 mt-4">{% for author in authors %} {{ author }}, {% endfor %}</p>
 <div class="mt-10">
     <form method="POST" action="{% url 'books.review' book.id %}">
         {% csrf_token %}
