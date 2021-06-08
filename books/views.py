@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from books.models import Book
 
 # Create your views here.
@@ -9,7 +9,6 @@ def index(request):
     return render(request, 'books/index.html', context)
 
 def show(request, id):
-
-    singleBook = Book.objects.get(pk=id)
+    singleBook = get_object_or_404(Book, pk=id)
     context = {'book': singleBook}
     return render(request, 'books/show.html', context)
