@@ -25,11 +25,16 @@
         <p>{{ book.longDescription }}</p>
         <p class="text-gray-600 mt-4">{{ book.authors|join:", " }}</p>
         <div class="mt-10">
-            <form method="POST" action="">
+            <form method="POST" action="{% url 'books.review' %}">
                 {% csrf_token %}
                 <textarea class="border rounded p-2 w-full" name="review" id="" rows="5" placeholder="Write your review here"></textarea>
                 <button type="submit" class="float-right border rounded p-2 bg-gray-800 text-white">Submit</button>
             </form>
+        </div>
+        <div class="mt-10">
+            {% for review in reviews %}
+                <p>{{ review.body }}</p>
+            {% endfor %}
         </div>
     </section>
     <!--[if lt IE 7]>
