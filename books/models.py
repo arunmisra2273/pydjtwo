@@ -11,3 +11,9 @@ class Book(models.Model):
 
     def __str__(self) -> str:
         return f"{self.id}  {self.title}"
+
+class Review(models.Model):
+    body = models.TextField(null=True)
+
+    def __str__(self) -> str:
+        return f"{self.id}  {self.body}"
