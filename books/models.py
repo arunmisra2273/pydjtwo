@@ -8,3 +8,6 @@ class Book(models.Model):
     thumbnailUrl = models.CharField(max_length=256, null=True)
     shortDescription = models.TextField(null=True)
     longDescription = models.TextField(null=True)
+
+    def __str__(self) -> str:
+        return f"{self.id}  {self.title}"
