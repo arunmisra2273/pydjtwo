@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView
 from books.models import Book, Review
 
 # Create your views here.
 
-def index(request):
-    dbData = Book.objects.all()
-    context = {'books': dbData}
-    return render(request, 'books/index.html', context)
+class BookListView(ListView):
+
+    def get_queryset(self):
+        return Book.objects.all()
 
 def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)
