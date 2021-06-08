@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, detail
 from books.models import Book, Review
 
 # Create your views here.
@@ -9,11 +9,9 @@ class BookListView(ListView):
     def get_queryset(self):
         return Book.objects.all()
 
-def show(request, id):
-    singleBook = get_object_or_404(Book, pk=id)
-    reviews = Review.objects.filter(book_id=id).order_by('-created_at')
-    context = {'book': singleBook, 'reviews': reviews}
-    return render(request, 'books/show.html', context)
+class BookDetailView(DetailView):
+
+    model = Book
 
 def review(request, id):
     body = request.POST['review']
