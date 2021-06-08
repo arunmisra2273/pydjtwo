@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ class Book(models.Model):
 class Review(models.Model):
     body = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now=True)
-    book_id = models.BigIntegerField()
+    book = models.ForeignKey(Book, on_delete=CASCADE, null=True)
 
     def __str__(self) -> str:
         return f"{self.id}  {self.body}"
