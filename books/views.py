@@ -1,15 +1,16 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, detail
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from books.models import Book, Review
 
 # Create your views here.
 
-class BookListView(ListView):
+class BookListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Book.objects.all()
 
-class BookDetailView(DetailView):
+class BookDetailView(LoginRequiredMixin, DetailView):
 
     model = Book
 
