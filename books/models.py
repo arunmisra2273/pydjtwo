@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
@@ -26,6 +27,7 @@ class Book(models.Model):
 class Review(models.Model):
     body = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=CASCADE, null=True)
     book = models.ForeignKey(Book, on_delete=CASCADE, null=True)
 
     def __str__(self) -> str:
