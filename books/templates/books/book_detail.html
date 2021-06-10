@@ -4,6 +4,9 @@
 
 {% block content %}
 <h1 class="text-center text-4xl">{{ book.title }}</h1>
+{% if user.is_authenticated %}
+<a href="/logout">Logout</a>
+{% endif %}
 <div class="flex justify-center">
     <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}" width="200">
 </div>

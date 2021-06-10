@@ -4,6 +4,9 @@
 
 {% block content %}
 <h1 class="text-center text-4xl">Programming Books</h1>
+{% if user.is_authenticated %}
+<a href="/logout">Logout</a>
+{% endif %}
 <div class="grid grid-cols-4 gap-4 mt-10">
     {% for book in book_list %}
     <a href="{% url 'books.show' book.id %}" class="justify-self-center text-center my-4" target="_blank">
